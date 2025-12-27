@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>McGill Minerva Header</title>
+<style>
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+thead th{
+  background:#e6e9ed;          /* 灰色表头 */
+  border-bottom:1px solid #9aa3ad;
+  padding:3px 6px;
+  font-weight:700;
+  text-align:left;
+}
+tbody td{
+  padding:2px 6px;             /* Minerva 很紧 */
+  white-space:nowrap;
+}
+
+.num{
+  text-align:right;
+}
+
+/* ===== 列宽（接近截图）===== */
+.c-sub{width:55px}
+.c-num{width:65px}
+.c-sec{width:55px}
+.c-title{width:460px}          /* 关键：Title 很宽 */
+.c-cr{width:55px}
+.c-grade{width:65px}
+.c-rem{width:80px}
+.c-earn{width:60px}
+.c-avg{width:75px}
+
+body{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#000}
+.header{padding:18px 24px;border-bottom:1px solid #ccc}
+.sample{color:#555}
+
+/* ===== summary table ===== */
+.summary-table{
+  width:100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:12px;
+}
+/* 整条 summary */
+.summary-strip {
+  width: 100%;
+  border-collapse: collapse;
+}
+.summary-strip td {
+  position: relative;
+  padding: 2px 6px;
+  vertical-align: top;
+}
+
+.summary-table td{
+  padding:2px 6px;
+  vertical-align:top;
+  white-space:nowrap;
+}
+.summary-table td:nth-child(1){width:140px}
+.summary-table td:nth-child(2){width:160px}
+.summary-table td:nth-child(3){width:40px}
+.summary-table td:nth-child(4){width:80px}
+.summary-table td:nth-child(5){width:80px}
+.summary-table td:nth-child(6){width:80px}
+.summary-table td:nth-child(7){width:80px}
+.summary-table td:nth-child(8){width:80px}
+
+
+.notice-box {
+  background-color: #ffffcc;   /* 官方淡黄色 */
+  border: 1px solid #cccccc;
+  padding: 6px 8px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.footer-text {
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.blue-divider {
+  border-top: 3px solid #003366; /* McGill / Minerva 风格蓝 */
+  margin: 8px 0 8px 0;
+}
+
+.copyright {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;        /* Minerva 官方大小 */
+  line-height: 1.2;       /* 防止看起来“变粗/变松” */
+  margin-top: 6px;
+}
+
+
+/* === IMPORTANT MESSAGE：覆盖成 Minerva 官方 === */
+/* ===== Minerva IMPORTANT MESSAGE (FINAL) ===== */
+/* ===== Minerva IMPORTANT MESSAGE (FINAL) ===== */
+.important-message {
+  display: flex;
+  align-items: flex-start;
+
+  background-color: #ffffcc;      /* 官方淡黄 */
+  border: 1px solid #c0c0c0;
+
+  padding: 6px 8px 6px 6px;
+  margin: 10px 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #000;
+}
+
+/* 左侧小蓝方块 */
+.important-message .icon {
+  width: 12px;
+  height: 12px;
+  margin: 2px 8px 0 2px;
+
+  background-color: #e6eef7;
+  border: 1px solid #4f81bd;
+  box-sizing: border-box;
+}
+
+/* 文本整体 */
+.important-text {
+  flex: 1;
+}
+
+/* 红色标题部分 */
+.important-title {
+  color: #cc0000;                 /* McGill 官方红 */
+  font-weight: bold;
+}
+
+
+
+.student-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+.student-left div,
+.student-right div {
+  margin-bottom: 2px;   /* Minerva 非常紧 */
+}
+
+.student-left strong,
+.student-right .grad-title {
+  display: inline-block;
+  min-width: 150px;     /* 关键：形成“表格对齐感” */
+}
+
+
+.grad-title {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 2px;
+}
+
+
+/* ===== Notes under IMPORTANT MESSAGE ===== */
+.notes-block {
+  margin-top: 6px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+/* ===== Remarks ===== */
+.remarks-block {
+  margin-top: 6px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+/* ===== Help line ===== */
+.help-line {
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.help-line a {
+  color: #003366;
+  text-decoration: underline;
+}
+
+/* ===== Repeat student info spacing ===== */
+.student-info.bottom {
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+/* ===== Section titles ===== */
+.section-title {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* ===== Plain text blocks ===== */
+.plain-text {
+  margin-bottom: 2px;
+}
+
+.credits-line {
+  margin-top: 6px;
+}
+
+/* ===== McGill Transcript Title（强制覆盖） ===== */
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header .mcgill {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: #cc0000;        /* ✅ McGill 官方暗红 */
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+
+.header .sub {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 22px;
+  font-weight: normal;
+  color: #8c2b2b;        /* ✅ 同一个红 */
+  letter-spacing: 0.5px;
+  margin-top: -6px;
+}
+.header .mcgill,
+.header .sub {
+  -webkit-font-smoothing: antialiased;
+}
+/* ===== PATCH: Minerva System Header ===== */
+
+/* 灰色 Banner */
+/* 1️⃣ 顶部灰条 */
+.minerva-top-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 80px;
+  line-height: 80px;
+ 
+
+  background: #d0d0d0;
+  border-top: 1px solid #bdbdbd;
+  border-bottom: 1px solid #bdbdbd;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+}
+.top-left span {
+  margin-right: 20px;
+}
+
+.top-left {
+  position: relative;
+  top: -6px;   /* ⬅️ 往上调，-4 ~ -8 都是安全区间 */
+}
+
+.top-right {
+  position: relative;
+  bottom: -25px;  /* ⬅️ 往下贴，4 ~ 8px 之间微调 */
+  color: #ffffff; 
+}
+
+
+.mcgill-logo {
+  background: #c40000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1;
+  padding: 3px 8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.minerva-title {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.top-right {
+  font-size: 25px;
+  line-height: 1;
+}
+
+
+/* 导航条 */
+.minerva-nav-bar {
+  background: #f2efe9;          /* 浅灰米色 */
+  border-top: 1px solid #bdbdbd;
+  border-bottom: none;          /* 底边由蓝线承担 */
+  padding: 6px 0 4px;           /* ⬅️ 关键：上下厚度 */
+}
+.minerva-nav {
+  display: flex;
+  gap: 0;
+  padding-left: 12px;
+}
+
+.minerva-nav a {
+  font-size: 12px;
+  padding: 6px 14px;            /* ⬅️ 图一的关键尺寸 */
+  color: #000;
+  text-decoration: none;
+  border-right: 1px solid #c8c8c8;
+}
+
+.minerva-nav a:last-child {
+  border-right: none;
+}
+
+.minerva-nav a.active {
+  color: #c40000;               /* Student 红 */
+  font-weight: bold;
+}
+
+
+/* 蓝色分隔线 */
+.minerva-blue-line {
+  height: 4px;                  /* ⬅️ 必须变粗 */
+  background: #0b3b8c;           /* Minerva 蓝 */
+  margin: 0;                     /* ⬅️ 紧贴菜单 */
+}
+
+
+/* 搜索条 */
+.minerva-search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 6px 16px;          /* ⬅️ 控制整体高度 */
+  border-bottom: 1px solid #c8c8c8;
+  font-size: 12px;
+}
+.minerva-search-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.minerva-search-left input {
+  height: 18px;              /* ⬅️ 图一是“矮框” */
+  width: 160px;              /* ⬅️ 不要太长 */
+  font-size: 12px;
+  padding: 1px 4px;
+  border: 1px solid #8c8c8c;
+}
+
+
+.minerva-search-left button {
+  height: 20px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+
+  background: #b30000;       /* McGill 深红 */
+  color: #fff;
+  border: 1px solid #7f0000;
+  cursor: pointer;
+}
+
+
+.minerva-search-right {
+  display: flex;
+  gap: 16px;
+}
+
+.minerva-search-right a {
+  font-size: 12px;
+  color: #003366;            /* 深蓝 */
+  text-decoration: none;
+}
+
+.minerva-search-right a:hover {
+  text-decoration: underline;
+}
+.minerva-search-bar {
+  max-width: 100%;
+}
+
+.minerva-search-bar > * {
+  max-width: 50%;
+}
+
+/* ===== 成绩字母列：居中对齐 ===== */
+th.c-grade,
+td.c-grade,
+th.c-avg,
+td.c-avg {
+  text-align: center;
+}
+
+/* Earned 继续右对齐（明确一下，避免被覆盖） */
+th.c-earn,
+td.c-earn {
+  text-align: right;
+}
+.c-grade,
+.c-avg {
+  font-family: "Courier New", monospace; /* 等宽 */
+  text-align: center;
+}
+
+tbody td.c-grade,
+tbody td.c-avg {
+  font-family: Arial, Helvetica, sans-serif;  /* ⬅️ 核心 */
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0;                          /* ⬅️ 很重要 */
+  text-align: center;
+}
+
+.minerva-page {
+  max-width: 1020px;     /* Minerva 接近这个宽度 */
+  margin: 0 auto;
+  padding: 16px 24px 32px;
+  font-size: 12px;
+  line-height: 1.5;      /* 核心 */
+}
+.important-message {
+  background: #fff7cc;
+  border: 1px solid #e6d88c;
+  padding: 8px 12px;
+  margin: 12px 0 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.important-title {
+  font-weight: bold;
+}
+.notes-block,
+.remarks-block,
+.help-line {
+  margin-left: 18px;     /* 系统常见缩进 */
+  margin-bottom: 12px;
+}
+
+.notes-block div,
+.remarks-block div {
+  margin-bottom: 4px;
+}
+
+.student-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.student-info.bottom {
+  margin-top: 24px;
+}
+
+.student-left div,
+.student-right div {
+  margin-bottom: 4px;
+}
+
+.grad-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+
+</style>
+
+</style>
+
+</head>
+
+<body>
+<!-- ===== PATCH: Minerva System Header ===== -->
+<div class="minerva-top-banner">
+  <div class="top-left">
+    <span class="mcgill-logo">McGill</span>
+    <span class="minerva-title">Minerva</span>
+  </div>
+
+  <div class="top-right">Minerva</div>
+</div>
+
+
+<div class="minerva-nav-bar">
+  <div class="minerva-nav">
+    <a href="#">MAIN MENU</a>
+    <a href="#">Personal</a>
+    <a href="#" class="active">Student</a>
+    <a href="#">Employee</a>
+    <a href="#">Applicant</a>
+    <a href="#">Financial Aid/Awards</a>
+  </div>
+</div>
+
+<div class="minerva-blue-line"></div>
+
+<div class="minerva-search-bar">
+  <div class="minerva-search-left">
+    Search
+    <input type="text">
+    <button>Go</button>
+  </div>
+  <div class="minerva-search-right">
+    <a href="#">MENU</a>
+    <a href="#">SITE MAP</a>
+    <a href="#">HELP</a>
+    <a href="#">EXIT</a>
+  </div>
+</div>
+<!-- ===== END PATCH ===== -->
+
+<!-- ===== End Minerva System Header ===== -->
+
+<div class="header">
+  <div class="mcgill">McGill</div>
+  <div class="sub">UNOFFICIAL Transcript</div>
+</div>
+
+
+<!-- ===== IMPORTANT MESSAGE ===== -->
+<div class="important-message">
+  <span class="icon"></span>
+  <span class="important-text">
+    <span class="important-title">IMPORTANT MESSAGE REGARDING GRADES:</span>
+    Please note that all grades submitted and approved between Thursday,
+    December 25, 2025 and Sunday, January 4, 2026 (inclusive) will reflect on
+    your transcript starting Monday, 5 January 2026.
+  </span>
+</div>
+
+
+<!-- ===== Student Info Section ===== -->
+<div class="student-info">
+
+  <!-- 右侧 -->
+  <div class="student-right">
+    <div class="grad-title">Expected Graduation Term and Degree</div>
+    <div>Winter 2026&nbsp;&nbsp;Bachelor of Engineering</div>
+  </div>
+
+</div>
+
+<!-- ===== Symbols / Notes ===== -->
+<div class="notes-block">
+  <div>◇ A diamond appears beside a course number to indicate a multi-term course.</div>
+  <div>* An asterisk appears next to the credit value of courses not counted in the total credits earned.</div>
+</div>
+
+<!-- ===== Remarks Column ===== -->
+<div class="remarks-block">
+  <div><strong>Remarks column:</strong></div>
+  <div>I - Course is <u>included</u> in credits and <u>included</u> in the GPA.</div>
+  <div>E - Course is <u>excluded</u> from credits and <u>excluded</u> from the GPA.</div>
+  <div>A - Course is <u>excluded</u> from credits and <u>included</u> in the GPA.</div>
+</div>
+
+<!-- ===== Help line ===== -->
+<div class="help-line">
+  Please click <a href="#">help</a> for more transcript information or
+  <a href="#">registration holds</a> for more information on holds.
+</div>
+
+<!-- ===== Student Info (repeat, Minerva style) ===== -->
+<div class="student-info bottom">
+
+  <div class="student-left">
+    <div><strong>Student Name:</strong> Li, Peizhi</div>
+    <div><strong>Preferred Pronoun:</strong> She/Her/Hers</div>
+    <div><strong>McGill ID:</strong> 261086913</div>
+    <div><strong>Permanent Code:</strong> LIXP85580107</div>
+  </div>
+
+  <div class="student-right">
+    <div class="grad-title">Expected Graduation Term and Degree</div>
+    <div>Winter 2026&nbsp;&nbsp;Bachelor of Engineering</div>
+  </div>
+
+</div>
+
+<!-- ===== Previous Education ===== -->
+<div class="section-title">PREVIOUS EDUCATION</div>
+<div class="plain-text">Quebec CEGEP/IB</div>
+
+<div class="plain-text credits-line">
+  Credits Required for B Eng Civil&nbsp;&nbsp;-&nbsp;&nbsp;139 credits
+</div>
+
+<!-- ========= Helper: course row =========
+<tr>
+<td>SUBJ</td><td>###</td><td>001</td><td>COURSE TITLE</td>
+<td class="num">3</td><td class="num">B+</td><td></td>
+<td class="num">3</td><td class="num">B</td>
+</tr>
+======================================= -->
+
+<!-- ===== Fall 2022 ===== -->
+<div class="term">Fall 2022</div>
+<div class="meta">Bachelor of Engineering · Civil Engineering</div>
+<div class="meta">Full-time   Year 1</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>205</td><td>001</td><td>Statics</td><td class="num">3</td><td class="c-grade">A-</td><td></td><td class="num">3</td><td class="c-avg">B-</td></tr>
+<tr><td>CIVE</td><td>290</td><td>001</td><td>Thermodynamics & Heat Transfer</td><td class="num">3</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B-</td></tr>
+<tr><td>COMP</td><td>208</td><td>001</td><td>Computer Programming for PS&E</td><td class="num">3</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">4</td><td class="c-avg">A-</td></tr>
+<tr><td>MATH</td><td>262</td><td>001</td><td>Intermediate Calculus</td><td class="num">3</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>MECH</td><td>289</td><td>001</td><td>Design Graphics</td><td class="num">3</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">A-</td></tr>
+</tbody>
+</table><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.88<br>
+      CUM GPA:&nbsp;&nbsp;3.88
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      15.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      15.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      15.00
+    </td>
+
+    <td>
+      Points<br>
+      58.20
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;44.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;15.00&nbsp;&nbsp;&nbsp;
+      15.00&nbsp;&nbsp;&nbsp;
+      15.00&nbsp;&nbsp;&nbsp;
+      58.20
+    </td>
+  </tr>
+</table><br>
+<div>Standing: Satisfactory</div><br><br>
+</div>
+
+<!-- ===== Winter 2023 ===== -->
+<div class="term">Winter 2023</div>
+<div class="meta">Bachelor of Engineering </div>
+<div class="meta">Part-time   Year 1</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>202</td><td>001</td><td>Construction Materials</td><td class="num">4</td><td class="c-grade">B-</td><td></td><td class="num">4</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>206</td><td>001</td><td>Dynamics</td><td class="num">3</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B&nbsp;&nbsp;</td></tr>
+<tr><td>FACC</td><td>100</td><td>002</td><td>Intro to the Eng. Profession</td><td class="num">1</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">1</td><td class="c-avg">A&nbsp;&nbsp;</td></tr>
+<tr><td>MATH</td><td>263</td><td>001</td><td>ODEs for Engineers</td><td class="num">3</td><td class="c-grade">A&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B&nbsp;&nbsp;</td></tr>
+</tbody>
+</table><br><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.52<br>
+      CUM GPA:&nbsp;&nbsp;3.73
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      11.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      11.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      11.00
+    </td>
+
+    <td>
+      Points<br>
+      38.80
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;132.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;26.00&nbsp;&nbsp;&nbsp;
+      26.00&nbsp;&nbsp;&nbsp;
+      26.00&nbsp;&nbsp;&nbsp;
+      97.00
+    </td>
+  </tr>
+</table><br>
+<div>Standing: Satisfactory</div><br><br>
+</div>
+
+<!-- ===== Summer 2023 ===== -->
+<div class="term">Summer 2023</div>
+<div class="meta">Bachelor of Engineering </div>
+<div class="meta">Part-time   Year 1</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>210</td><td>001</td><td>Surveying</td><td class="num">2</td><td class="c-grade">A-</td><td></td><td class="num">2</td><td class="c-avg">A-</td></tr>
+</tbody>
+</table><br><br>
+<div class="summary">
+  <table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.70<br>
+      CUM GPA:&nbsp;&nbsp;3.72
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      2.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      2.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      2.00
+    </td>
+
+    <td>
+      Points<br>
+      7.40
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;57.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;28.00&nbsp;&nbsp;&nbsp;
+      28.00&nbsp;&nbsp;&nbsp;
+      28.00&nbsp;&nbsp;&nbsp;
+      104.40
+    </td>
+  </tr>
+</table><br>
+  <div>Standing: Satisfactory</div>
+</div><br><br>
+</div> <!-- wrap 结束 -->
+
+
+<!-- ===== Fall 2023 ===== -->
+<div class="term">Fall 2023</div>
+<div class="meta">Bachelor of Engineering</div>
+<div class="meta">Full-time   Year 2</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>207</td><td>001</td><td>Solid Mechanics</td><td class="num">4</td><td class="c-grade">A-&nbsp;</td><td></td><td class="num">4</td><td class="c-avg">B&nbsp;&nbsp;</td></tr>
+<tr><td>ECON</td><td>208</td><td>001</td><td>Microeconomic Analysis&Applic</td><td class="num">3</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B&nbsp;&nbsp;</td></tr>
+<tr><td>EPSC</td><td>221</td><td>001</td><td>General Geology</td><td class="num">3</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>FACC</td><td>250</td><td>001</td><td>Resp. of the Prof. Engineer</td><td class="num">0</td><td class="c-grade">P&nbsp;&nbsp;</td><td></td><td class="num">0</td><td class="c-avg"></td></tr>
+<tr><td>FACC</td><td>300</td><td>002</td><td>Engineering Economy</td><td class="num">3</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B&nbsp;&nbsp;</td></tr>
+<tr><td>MATH</td><td>264</td><td>001</td><td>Adv Calculus for Engineers</td><td class="num">3</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B-&nbsp;</td></tr>
+</tbody>
+</table><br><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.92<br>
+      CUM GPA:&nbsp;&nbsp;3.80
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      16.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      16.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      16.00
+    </td>
+
+    <td>
+      Points<br>
+      62.80
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;73.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;44.00&nbsp;&nbsp;&nbsp;
+      44.00&nbsp;&nbsp;&nbsp;
+      44.00&nbsp;&nbsp;&nbsp;
+      167.20
+    </td>
+  </tr>
+</table><br>
+<div>Standing: Satisfactory</div>
+</div><br><br>
+</div>
+
+<!-- ===== Winter 2024 ===== -->
+<div class="term">Winter 2024</div>
+<div class="meta">Bachelor of Engineering </div>
+<div class="meta">Full-time   Year 2</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>225</td><td>001</td><td>Environmental Engineering</td><td class="num">4</td><td class="c-grade">C+</td><td></td><td class="num">4</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>302</td><td>001</td><td>Probabilistic Systems</td><td class="num">3</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B&nbsp;&nbsp;</td></tr>
+<tr><td>CIVE</td><td>324</td><td>001</td><td>	Sustainable Project Management</td><td class="num">3</td><td class="c-grade">A-&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">A-&nbsp;</td></tr>
+<tr><td>CIVE</td><td>327</td><td>001</td><td>Fluid Mechanics & Hydraulics</td><td class="num">4</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">4</td><td class="c-avg">A-&nbsp;</td></tr>
+</tbody>
+</table><br><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.45<br>
+      CUM GPA:&nbsp;&nbsp;3.71
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      14.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      14.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      14.00
+    </td>
+
+    <td>
+      Points<br>
+      48.30
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;87.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;58.00&nbsp;&nbsp;&nbsp;
+      58.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      58.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      215.50
+    </td>
+  </tr>
+</table><br>
+<div>Standing: Satisfactory</div><br><br>
+</div>
+
+
+<!-- ===== Summer 2024 ===== -->
+<div class="term">Summer 2024</div>
+<div class="meta">Bachelor of Engineering </div>
+<div class="meta">Part-time   Year 2</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>FACC</td><td>351</td><td>001</td><td>Summer Undergrad Res Exp 1</td><td class="num">0</td><td class="c-grade">P&nbsp;</td><td></td><td class="num">0</td><td class="c-avg"></td></tr>
+<tr><td>WCOM</td><td>206</td><td>702</td><td>Communication in Engineering</td><td class="num">3</td><td class="c-grade">B-</td><td></td><td class="num">3</td><td class="c-avg">A-</td></tr>
+</tbody>
+</table><br><br>
+<div class="summary">
+  <table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;2.70<br>
+      CUM GPA:&nbsp;&nbsp;3.66
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      3.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      3.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      3.00
+    </td>
+
+    <td>
+      Points<br>
+      8.10
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;90.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;61.00&nbsp;&nbsp;&nbsp;
+      61.00&nbsp;&nbsp;&nbsp;
+      61.00&nbsp;&nbsp;&nbsp;
+      223.60
+    </td>
+  </tr>
+</table><br>
+  <div>Standing: Satisfactory</div>
+</div><br><br>
+</div> <!-- wrap 结束 -->
+
+
+
+<!-- ===== Fall 2024 ===== -->
+<div class="term">Fall 2024</div>
+<div class="meta">Bachelor of Engineering</div>
+<div class="meta">Full-time   Year 3</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>208</td><td>001</td><td>Civil Engineering Sys Analysis</td><td class="num">3</td><td class="c-grade">A-&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>311</td><td>001</td><td>Geotechnical Mechanics</td><td class="num">4</td><td class="c-grade">B&nbsp;&nbsp;</td><td></td><td class="num">4</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>317</td><td>001</td><td>Structural Engineering 1</td><td class="num">3</td><td class="c-grade">B+</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>323</td><td>001</td><td>Hydrology and Water Resources</td><td class="num">3</td><td class="c-grade">B+</td><td></td><td class="num">3</td><td class="c-avg">A-&nbsp;</td></tr>
+<tr><td>GEOG</td><td>203</td><td>001</td><td>Environmental Systems</td><td class="num">3</td><td class="c-grade">A-&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>MECH</td><td>261</td><td>001</td><td>Measurement Laboratory</td><td class="num">2</td><td class="c-grade">B+</td><td></td><td class="num">2</td><td class="c-avg">B+</td></tr>
+</tbody>
+</table><br><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.36<br>
+      CUM GPA:&nbsp;&nbsp;3.59
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      18.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      18.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      18.00
+    </td>
+
+    <td>
+      Points<br>
+      60.60
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;108.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;79.00&nbsp;&nbsp;&nbsp;
+      79.00&nbsp;&nbsp;&nbsp;
+      79.00&nbsp;&nbsp;&nbsp;
+      284.20
+    </td>
+  </tr>
+</table><br>
+<div>Standing: Satisfactory</div>
+</div><br><br>
+</div>
+
+<!-- ===== Winter 2025 ===== -->
+<div class="term">Winter 2025</div>
+<div class="meta">Bachelor of Engineering</div>
+<div class="meta">Full-time   Year 3</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>CIVE</td><td>318</td><td>001</td><td>Structural Engineering 2</td><td class="num">3</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>319</td><td>001</td><td>Transportation Engineering</td><td class="num">3</td><td class="c-grade">A-&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>CIVE</td><td>460</td><td>001</td><td>Matrix Structural Analysis</td><td class="num">3</td><td class="c-grade">B+</td><td></td><td class="num">3</td><td class="c-avg"></td></tr>
+<tr><td>CIVE</td><td>512</td><td>001</td><td>Advanced Civil Engrg Materials</td><td class="num">3</td><td class="c-grade">B&nbsp;&nbsp;</td><td></td><td class="num">3</td><td class="c-avg">B+</td></tr>
+<tr><td>FACC</td><td>400</td><td>001</td><td>Eng Professional Practice</td><td class="num">1</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">1</td><td class="c-avg">A&nbsp;&nbsp;</td></tr>
+</tbody>
+</table><br><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.53<br>
+      CUM GPA:&nbsp;&nbsp;3.58
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      13.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      13.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      13.00
+    </td>
+
+    <td>
+      Points<br>
+      46.00
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;121.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;92.00&nbsp;&nbsp;&nbsp;
+      92.00&nbsp;&nbsp;&nbsp;
+      92.00&nbsp;&nbsp;&nbsp;
+      330.20
+    </td>
+  </tr>
+</table><br><br>
+</div>
+
+<!-- ===== Summer 2025 ===== -->
+<div class="term">Summer 2025</div>
+<div class="meta">Bachelor of Engineering </div>
+<div class="meta">Year 3</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="c-sub">Subject</th>
+  <th class="c-num">Number</th>
+  <th class="c-sec">Section</th>
+  <th class="c-title">Title</th>
+  <th class="c-cr num">Cr.</th>
+  <th class="c-grade num">Grade</th>
+  <th class="c-rem">Remarks</th>
+  <th class="c-earn num">Earned</th>
+  <th class="c-avg num">Class Avg.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>FACC</td><td>352</td><td>001</td><td>Summer Undergrad Res Exp 2</td><td class="num">0</td><td class="c-grade">P</td><td></td><td class="num">0</td><td class="c-avg"></td></tr>
+</tbody>
+</table><br><br>
+<div class="summary">
+  <div>Standing: Satisfactory</div>
+</div><br><br>
+</div> <!-- wrap 结束 -->
+
+
+<!-- ===== Fall 2025 ===== -->
+<div class="term">Fall 2025</div>
+<div class="meta">Bachelor of Engineering</div>
+<div class="meta">Full-time   Year 3</div>
+<div class="meta">Civil Engineering</div><br>
+<div class="wrap">
+<table>
+<thead><tr>
+<th class="c-sub">Subject</th><th class="c-num">Number</th><th class="c-sec">Section</th>
+<th class="c-title">Title</th><th class="c-cr num">Cr.</th>
+<th class="c-grade num">Grade</th><th class="c-rem">Remarks</th>
+<th class="c-earn num">Earned</th><th class="c-avg num">Class Avg.</th>
+</tr></thead>
+<tbody>
+<tr><td>CIVE</td><td>320</td><td>001</td><td>Numerical Methods</td><td class="num">4</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">4</td><td class="c-avg"></td></tr>
+<tr><td>CIVE</td><td>418</td><td>001</td><td>Design Project</td><td class="num">4</td><td class="c-grade">A&nbsp;&nbsp;</td><td></td><td class="num">4</td><td class="c-avg"></td></tr>
+<tr><td>CIVE</td><td>440</td><td>001</td><td>Traffic Engineering & Simulation</td><td class="num">3</td><td class="c-grade">B+</td><td></td><td class="num">3</td><td class="c-avg"></td></tr>
+<tr><td>CIVE</td><td>462</td><td>001</td><td>Design of Steel Structures</td><td class="num">3</td><td class="c-grade">B+</td><td></td><td class="num">3</td><td class="c-avg"></td></tr>
+<tr><td>CIVE</td><td>528</td><td>001</td><td>Design of Wood Structures</td><td class="num">3</td><td class="c-grade">C+</td><td></td><td class="num">3</td><td class="c-avg"></td></tr>
+</tbody>
+</table><br><br>
+<table class="summary-table">
+  <tr>
+    <td colspan="2">
+      TERM GPA:&nbsp;&nbsp;3.45<br>
+      CUM GPA:&nbsp;&nbsp;3.47
+    </td>
+
+    <td colspan="2">
+      Advanced Standing<br>
+      &amp; Transfer Credits:&nbsp;&nbsp;29.00
+    </td>
+
+    <td></td>
+
+    <td>
+      Att Cr<br>
+      17.00
+    </td>
+
+    <td>
+      Earned Cr<br>
+      14.00
+    </td>
+
+    <td>
+      GPA Cr<br>
+      17.00
+    </td>
+
+    <td>
+      Points<br>
+      44.90
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      TOTAL CREDITS:&nbsp;&nbsp;135.00
+    </td>
+    <td></td>
+    <td colspan="4">
+      CUM TOTALS:&nbsp;&nbsp;109.00&nbsp;&nbsp;&nbsp;
+      106.00&nbsp;&nbsp;&nbsp;
+      109.00&nbsp;&nbsp;&nbsp;
+      375.10
+    </td>
+  </tr>
+</table><br>
+<div>Standing: Satisfactory</div><br>
+</div>
+
+<!-- ===== Winter 2026 ===== -->
+
+<div class="term-header">Winter 2026</div>
+
+<div class="program-info">
+  Bachelor of Engineering<br>
+  Part-time&nbsp;&nbsp;Year 3<br>
+  Civil Engineering
+</div><br>
+<!-- ===== Course Table ===== -->
+<table class="course-table">
+  <tr>
+    <td class="status">RW</td>
+    <td class="course">CIVE 432</td>
+    <td class="section">001</td>
+    <td class="title">Technical Paper</td>
+    <td class=""></td>
+    <td class="credit">1</td>
+  </tr>
+</table><br>
+
+<!-- ===== 底部分隔线 + footer ===== -->
+<div class="footer-line"></div>
+<div class="blue-divider"></div>
+<div class="footer-text">
+  RELEASE 1.20<br>
+  FORM NAME: SWFTRAN
+</div><br>
+<div class="notice-box">
+  <strong>NOTICE:</strong>
+   <strong>Are you receiving "Page not working" or "Page can't be displayed" errors?</strong>
+  <br>
+  If you are using Internet Explorer or Microsoft Edge, try switching to Chrome or Firefox.
+  If the issue still persists, please report it to the IT Service Desk at (514) 398-3398.
+  If you can take a screenshot from Minerva, it will also help us.
+</div>
+<div class="copyright">
+  © 2025 Ellucian Company L.P. and its affiliates.
+</div>
+
+</body>
+</html>
