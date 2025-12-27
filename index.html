@@ -483,70 +483,12 @@ tbody td.c-avg {
   font-weight: bold;
   margin-bottom: 4px;
 }
-/* =====================================================
-   Mobile adaptation – Minerva style (SAFE PATCH)
-   Does NOT affect desktop
-   ===================================================== */
-@media (max-width: 768px) {
-
-  /* ---------- 全局字体稍微放大 ---------- */
-  body {
-    font-size: 13px;
-    line-height: 1.45;
-  }
-
-  /* ---------- 页面左右留白减少 ---------- */
-  .minerva-page,
-  .header {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  /* ---------- 表格：保持桌面结构，手机横向滑 ---------- */
-  .wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  table {
-    min-width: 920px;      /* 保证列不塌、不挤 */
-  }
-
-  /* ---------- 顶部导航：允许横向滚动 ---------- */
-  .minerva-nav {
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .minerva-nav a {
-    flex: 0 0 auto;
-  }
-
-  /* ---------- 搜索条左右不挤 ---------- */
-  .minerva-search-bar {
-    flex-wrap: wrap;
-    row-gap: 6px;
-  }
-
-  .minerva-search-left,
-  .minerva-search-right {
-    max-width: 100%;
-  }
-
-  /* ---------- 成绩字母在手机更清楚 ---------- */
-  td.c-grade,
-  td.c-avg {
-    font-weight: 600;
-  }
-
-}
 
 </style>
 
 </style>
 
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 <!-- ===== PATCH: Minerva System Header ===== -->
 <div class="minerva-top-banner">
@@ -1457,5 +1399,6 @@ tbody td.c-avg {
 
 </body>
 </html>
+
 
 
